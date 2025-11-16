@@ -3,7 +3,7 @@ resource "aws_nat_gateway" "this" {
   subnet_id     = aws_subnet.vpc_public_subnet_1a.id
 
   tags = {
-    Name = "dvn-workshop=vpc-nat-gateway"
+    Name = "dvn-workshop-vpc-nat-gateway"
   }
 
   # To ensure proper ordering, it is recommended to add an explicit dependency

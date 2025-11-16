@@ -2,7 +2,7 @@ variable "tags" {
   type = map(string)
 
   default = {
-    Environemnt = "production"
+    Environment = "production"
     Project     = "dvn-workshop"
   }
 }

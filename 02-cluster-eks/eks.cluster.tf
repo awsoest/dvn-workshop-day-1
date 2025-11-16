@@ -12,6 +12,13 @@ resource "aws_eks_cluster" "this" {
     subnet_ids = data.aws_subnets.private.ids
   }
 
+  lifecycle {
+    precondition {
+      condition     = length(data.aws_subnets.private.ids) >= 2
+      error_message = "At least 2 private subnets are required for EKS cluster. Please apply the networking infrastructure in ../01-networking first."
+    }
+  }
+
   depends_on = [
     aws_iam_role_policy_attachment.eks_cluster_AmazonEKSClusterPolicy,
   ]
